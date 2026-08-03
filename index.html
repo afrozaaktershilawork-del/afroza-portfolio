@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Afroza Akter — Social Media Marketing and Digital Marketing Expert. Helping brands grow their digital presence with proven strategies."/>
+  <meta property="og:title" content="Afroza Akter | Digital Marketing Expert"/>
+  <meta property="og:description" content="Social Media Marketing and Digital Strategy Expert helping brands grow online."/>
+  <title>Afroza Akter | Digital Marketing Expert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* =====================================================
+       DESIGN SYSTEM
+    ===================================================== */
+    :root{
+      --cream:#fff8f1; --cream-2:#f5e3d2; --cream-3:#eecaa5;
+      --orange:#fa5729; --orange-lt:#ff8664; --orange-bg:#ffe8e2;
+      --dark:#0b120e; --dark-2:#515753; --dark-3:#9da29f; --border-c:#d3d8d6;
+      --purple:#402ee4; --purple-bg:#e6e3ff;
+      --green:#1a5032; --green-lt:#509870; --green-pale:#a5debe; --green-bg:#dbf5e6;
+      --font-h:'Onest',sans-serif; --font-b:'Work Sans',sans-serif;
+      --sp:100px; --cw:1240px;
+      --tf:.18s ease; --tm:.35s cubic-bezier(.4,0,.2,1);
+      --r1:8px; --r2:16px; --r3:24px; --rf:999px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-b);background:var(--cream);color:var(--dark);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block;height:auto}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    button{border:none;background:none;cursor:pointer;font-family:inherit}
+    input,textarea,select{font-family:var(--font-b)}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--cream-2)}
+    ::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+
+    /* LOADER */
+    #loader{position:fixed;inset:0;z-index:10000;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;transition:opacity .5s ease,visibility .5s ease}
+    #loader.out{opacity:0;visibility:hidden;pointer-events:none}
+    .l-name{font-family:var(--font-h);font-size:2.8rem;font-weight:900;color:var(--cream);letter-spacing:-2px}
+    .l-name span{color:var(--orange)}
+    .l-bar{width:150px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
+    .l-prog{height:100%;background:var(--orange);border-radius:2px;animation:lp 1.6s ease forwards}
+    @keyframes lp{from{width:0}to{width:100%}}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background:var(--cream);border-bottom:1px solid var(--cream-2);transition:all .4s ease}
+    .nav.glass{background:rgba(255,248,241,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(238,202,165,.3);box-shadow:0 2px 20px rgba(11,18,14,.05);padding:.85rem 0}
+    .nav-in{max-width:var(--cw);margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:2rem}
+    .nav-logo{font-family:var(--font-h);font-size:1.45rem;font-weight:900;letter-spacing:-1px;color:var(--dark);margin-right:auto}
+    .nav-logo span{color:var(--orange)}
+    .nav-links{display:flex;gap:.2rem}
+    .nav-a{padding:.4rem .85rem;font-size:.85rem;font-weight:500;color:var(--dark-2);border-radius:var(--rf);transition:all var(--tf)}
+    .nav-a:hover,.nav-a.active{color:var(--dark);background:rgba(238,202,165,.35)}
+    .nav-cta{display:flex;align-items:center;gap:.45rem;padding:.55rem 1.3rem;background:var(--dark);color:var(--cream);border-radius:var(--rf);font-size:.85rem;font-weight:600;transition:all var(--tm);white-space:nowrap}
+    .nav-cta:hover{background:var(--orange);transform:translateY(-2px)}
+    .ham{display:none;flex-direction:column;gap:5px;padding:4px}
+    .ham span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s}
+    .ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .ham.open span:nth-child(2){opacity:0}
+    .ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .m-nav{position:fixed;inset:0;z-index:999;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;opacity:0;visibility:hidden;transition:all .4s}
+    .m-nav.open{opacity:1;visibility:visible}
+    .m-nav a{font-family:var(--font-h);font-size:2.2rem;font-weight:900;letter-spacing:-1.5px;color:var(--dark);padding:.2rem;transition:color var(--tf)}
+    .m-nav a:hover{color:var(--orange)}
+
+    /* CONTAINER */
+    .c{max-width:var(--cw);margin:0 auto;padding:0 1.5rem}
+
+    /* LABEL */
+    .label{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dark-2);margin-bottom:1.25rem}
+    .label::before{content:'';width:8px;height:8px;background:var(--orange);border-radius:50%;flex-shrink:0}
+    .label::after{content:'';width:4px;height:4px;background:var(--orange-lt);border-radius:50%;flex-shrink:0}
+    .label.light{color:rgba(255,248,241,.4)}
+    .label.light::before{background:var(--orange)}
+    .label.light::after{background:rgba(250,134,100,.4)}
+
+    /* BUTTONS */
+    .btn-o{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.8rem;background:var(--orange);color:#fff;border-radius:var(--rf);font-size:.92rem;font-weight:600;border:none;cursor:pointer;font-family:var(--font-b);transition:all var(--tm);white-space:nowrap}
+    .btn-o:hover{background:#e44d22;transform:translateY(-3px);box-shadow:0 10px 28px rgba(250,87,41,.3)}
+    .btn-d{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.8rem;background:var(--dark);color:var(--cream);border-radius:var(--rf);font-size:.92rem;font-weight:600;cursor:pointer;font-family:var(--font-b);transition:all var(--tm)}
+    .btn-d:hover{background:var(--orange);transform:translateY(-3px)}
+    .btn-outline{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.8rem;border:1.5px solid var(--dark);color:var(--dark);border-radius:var(--rf);font-size:.92rem;font-weight:600;cursor:pointer;font-family:var(--font-b);background:transparent;transition:all var(--tm)}
+    .btn-outline:hover{background:var(--dark);color:var(--cream);transform:translateY(-3px)}
+
+    /* REVEAL */
+    [data-r]{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.4,0,.2,1)}
+    [data-r].on{opacity:1;transform:translateY(0)}
+    [data-r][data-d="1"]{transition-delay:.1s}[data-r][data-d="2"]{transition-delay:.2s}
+    [data-r][data-d="3"]{transition-delay:.3s}[data-r][data-d="4"]{transition-delay:.4s}
+
+    /* =================== HERO =================== */
+    .hero{min-height:100vh;padding:8rem 0 4rem;position:relative;overflow:hidden;background:var(--cream)}
+    .h-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+    .h-b1{width:480px;height:480px;background:var(--orange-bg);top:-80px;right:-80px;opacity:.7;animation:blob 10s ease-in-out infinite}
+    .h-b2{width:280px;height:280px;background:var(--purple-bg);bottom:60px;left:-40px;opacity:.5;animation:blob 8s ease-in-out infinite reverse}
+    @keyframes blob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(25px,-25px) scale(1.08)}}
+    .hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+    .h-tag{display:inline-flex;align-items:center;gap:.5rem;padding:.38rem .95rem;background:var(--green-bg);color:var(--green);border-radius:var(--rf);border:1px solid var(--green-pale);font-size:.75rem;font-weight:600;margin-bottom:1.4rem}
+    .h-dot{width:7px;height:7px;background:var(--green-lt);border-radius:50%;animation:pulse 2s ease infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(80,152,112,.5)}50%{box-shadow:0 0 0 5px rgba(80,152,112,0)}}
+    .h-title{font-family:var(--font-h);font-size:clamp(2.6rem,5vw,4.6rem);font-weight:900;line-height:1.02;letter-spacing:-2.5px;color:var(--dark);margin-bottom:1.4rem}
+    .h-title em{font-style:italic;color:var(--orange)}
+    .h-title .uw{position:relative;display:inline-block}
+    .h-title .uw::after{content:'';position:absolute;left:0;bottom:-3px;width:100%;height:4px;background:var(--orange);border-radius:2px;transform:scaleX(0);transform-origin:left;animation:lr .8s ease 2.2s forwards}
+    @keyframes lr{to{transform:scaleX(1)}}
+    .h-desc{font-size:1rem;color:var(--dark-2);line-height:1.78;max-width:460px;margin-bottom:2.2rem}
+    .h-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.5rem}
+    .h-contact{display:flex;gap:.75rem;flex-wrap:wrap}
+    .c-pill{display:flex;align-items:center;gap:.5rem;padding:.45rem 1rem;background:var(--cream-2);border:1px solid var(--border-c);border-radius:var(--rf);font-size:.8rem;font-weight:500;color:var(--dark);transition:all var(--tf)}
+    .c-pill:hover{background:var(--dark);color:var(--cream);border-color:var(--dark);transform:translateY(-2px)}
+    .h-visual{position:relative;display:flex;justify-content:flex-end}
+    .h-photo{width:100%;max-width:420px;aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:1px solid var(--cream-3);background:var(--cream-2);position:relative}
+    .h-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+    .sf{position:absolute;display:flex;align-items:center;gap:.8rem;padding:.9rem 1.1rem;background:#fff;border:1px solid var(--cream-3);border-radius:var(--r2);box-shadow:0 8px 28px rgba(11,18,14,.08);animation:cf 4s ease-in-out infinite}
+    .sf-ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .sf-ic.o{background:var(--orange-bg);color:var(--orange)}.sf-ic.g{background:var(--green-bg);color:var(--green-lt)}.sf-ic.p{background:var(--purple-bg);color:var(--purple)}
+    .sf-n{font-family:var(--font-h);font-size:1.1rem;font-weight:900;color:var(--dark);letter-spacing:-.5px;line-height:1.1}
+    .sf-l{font-size:.68rem;color:var(--dark-3);font-weight:500}
+    .sf1{top:30px;left:-55px;animation-delay:0s}.sf2{bottom:90px;left:-65px;animation-delay:-2s}.sf3{top:50%;right:-35px;animation:cf3 4s ease-in-out -3s infinite}
+    @keyframes cf{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    @keyframes cf3{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 9px))}}
+
+    /* =================== TICKER =================== */
+    .ticker{padding:1.2rem 0;background:var(--dark);overflow:hidden;white-space:nowrap}
+    .t-track{display:inline-flex;animation:ts 26s linear infinite}
+    .t-track:hover{animation-play-state:paused}
+    @keyframes ts{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .t-item{display:inline-flex;align-items:center;gap:.9rem;padding:0 2.2rem;font-family:var(--font-h);font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cream)}
+    .t-sep{color:var(--orange);font-size:.45rem}
+
+    /* =================== YOUTUBE INTRO =================== */
+    .yt-section{padding:var(--sp) 0;background:var(--dark);position:relative;overflow:hidden}
+    .yt-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(250,87,41,.08) 0%,transparent 60%)}
+    .yt-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.3fr;gap:3.5rem;align-items:center}
+    .yt-title{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;letter-spacing:-1.5px;color:var(--cream);line-height:1.1;margin-bottom:1rem}
+    .yt-title span{color:var(--orange)}
+    .yt-desc{font-size:.92rem;color:var(--dark-3);line-height:1.75;margin-bottom:2rem}
+    .yt-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+    .btn-yt{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.6rem;background:var(--orange);color:#fff;border-radius:var(--rf);font-size:.88rem;font-weight:600;transition:all var(--tm);cursor:pointer;border:none;font-family:var(--font-b)}
+    .btn-yt:hover{background:#e44d22;transform:translateY(-3px)}
+    .btn-yt-out{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.6rem;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,248,241,.7);border-radius:var(--rf);font-size:.88rem;font-weight:600;transition:all var(--tm);background:transparent}
+    .btn-yt-out:hover{background:rgba(255,255,255,.08);color:var(--cream);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
+    .yt-player-wrap{position:relative;border-radius:var(--r3);overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08)}
+    .yt-player-ratio{position:relative;padding-bottom:56.25%}
+    .yt-player-ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    /* =================== STATS =================== */
+    .stats{padding:4.5rem 0;border-bottom:1px solid var(--cream-2)}
+    .stats-g{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+    .stats-g::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent calc(25% - 1px),var(--cream-2) calc(25% - 1px),var(--cream-2) 25%);pointer-events:none}
+    .s-item{padding:2rem;text-align:center}
+    .s-num{font-family:var(--font-h);font-size:3.2rem;font-weight:900;letter-spacing:-2px;line-height:1;color:var(--dark);display:inline-block}
+    .s-suf{font-family:var(--font-h);font-size:1.8rem;font-weight:900;color:var(--orange)}
+    .s-lbl{font-size:.82rem;color:var(--dark-3);margin-top:.4rem;font-weight:500}
+
+    /* =================== ABOUT =================== */
+    .about{padding:var(--sp) 0}
+    .about-in{max-width:750px;margin:0 auto}
+    .about-title{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:1.25rem}
+    .about-title span{color:var(--orange)}
+    .ab-txt{font-size:.98rem;color:var(--dark-2);line-height:1.8;margin-bottom:1rem}
+    .ab-txt strong{color:var(--dark)}
+    .ab-stat-row{display:flex;gap:2rem;flex-wrap:wrap;padding:1.75rem 2rem;background:var(--cream-2);border:1px solid var(--cream-3);border-radius:var(--r3);margin:1.75rem 0}
+    .ab-s-num{font-family:var(--font-h);font-size:1.9rem;font-weight:900;letter-spacing:-1px;color:var(--dark);line-height:1}
+    .ab-s-num span{color:var(--orange)}
+    .ab-s-lbl{font-size:.75rem;color:var(--dark-3);margin-top:.2rem}
+    .skills{margin:1.5rem 0}
+    .sk-row{margin-bottom:.85rem}
+    .sk-hd{display:flex;justify-content:space-between;font-size:.83rem;font-weight:500;color:var(--dark);margin-bottom:.38rem}
+    .sk-hd span:last-child{color:var(--orange);font-weight:700}
+    .sk-track{height:5px;background:var(--cream-2);border-radius:3px;overflow:hidden;border:1px solid var(--cream-3)}
+    .sk-fill{height:100%;width:0;background:var(--orange);border-radius:3px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+    .tags{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0}
+    .tag{padding:.3rem .85rem;background:var(--cream-2);border:1px solid var(--cream-3);border-radius:var(--rf);font-size:.75rem;font-weight:500;color:var(--dark);transition:all var(--tf);cursor:default}
+    .tag:hover{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+    .ab-btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.5rem}
+
+    /* =================== SERVICES =================== */
+    .services{padding:var(--sp) 0;background:var(--dark)}
+    .svc-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;gap:1.5rem;flex-wrap:wrap}
+    .svc-title{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;letter-spacing:-1.5px;color:var(--cream);line-height:1.1}
+    .svc-title span{color:var(--orange)}
+    .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(255,255,255,.06)}
+    .svc-card{background:var(--dark);padding:2.2rem;position:relative;overflow:hidden;transition:all var(--tm)}
+    .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform var(--tm)}
+    .svc-card:hover{background:rgba(255,255,255,.04)}
+    .svc-card:hover::before{transform:scaleX(1)}
+    .svc-num{font-family:var(--font-h);font-size:.72rem;font-weight:700;color:var(--orange);letter-spacing:2px;display:block;margin-bottom:1.2rem}
+    .svc-icon{width:50px;height:50px;background:rgba(250,87,41,.12);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--orange);margin-bottom:1.1rem;transition:all var(--tm)}
+    .svc-card:hover .svc-icon{background:var(--orange);color:#fff;transform:scale(1.1)}
+    .svc-name{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--cream);margin-bottom:.6rem;letter-spacing:-.2px}
+    .svc-desc{font-size:.85rem;color:var(--dark-3);line-height:1.7;margin-bottom:1.2rem}
+    .chips{display:flex;flex-wrap:wrap;gap:.35rem}
+    .chip{padding:.18rem .65rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--rf);font-size:.68rem;color:rgba(255,248,241,.5);font-weight:500}
+    .svc-arr{position:absolute;top:1.8rem;right:1.8rem;width:30px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font-size:.72rem;transition:all var(--tm)}
+    .svc-card:hover .svc-arr{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(-45deg)}
+
+    /* =================== PORTFOLIO =================== */
+    .portfolio{padding:var(--sp) 0}
+    .p-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;gap:1rem;flex-wrap:wrap}
+    .p-title{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1}
+    .p-title span{color:var(--orange)}
+    .filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem}
+    .fb{padding:.42rem 1rem;border:1px solid var(--border-c);border-radius:var(--rf);font-size:.8rem;font-weight:500;color:var(--dark-2);background:transparent;cursor:pointer;transition:all var(--tf);font-family:var(--font-b)}
+    .fb:hover{color:var(--dark);border-color:var(--dark)}
+    .fb.active{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+    .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+    .p-card{border-radius:var(--r2);overflow:hidden;cursor:pointer;background:var(--cream-2);transition:transform .35s ease,box-shadow .35s ease}
+    .p-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,18,14,.1)}
+    .p-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--cream-2)}
+    .p-thumb img,.p-thumb video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+    .p-card:hover .p-thumb img,.p-card:hover .p-thumb video{transform:scale(1.06)}
+    .p-ov{position:absolute;inset:0;background:rgba(11,18,14,.88);opacity:0;transition:opacity var(--tm);display:flex;align-items:flex-end;padding:1.3rem}
+    .p-card:hover .p-ov{opacity:1}
+    .p-ov::after{content:'View Gallery';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--orange);color:#fff;padding:.5rem 1.2rem;border-radius:var(--rf);font-size:.8rem;font-weight:700;font-family:var(--font-h);letter-spacing:.5px;opacity:0;transition:opacity .3s ease;pointer-events:none;white-space:nowrap}
+    .p-card:hover .p-ov::after{opacity:1}
+    .p-tag{display:inline-block;padding:.18rem .65rem;background:var(--orange);color:#fff;border-radius:var(--rf);font-size:.68rem;font-weight:700;margin-bottom:.35rem}
+    .p-name{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--cream);margin-bottom:.25rem}
+    .p-met{font-size:.72rem;color:var(--orange-lt)}
+    .p-meta{padding:.85rem .25rem 0;display:flex;justify-content:space-between;align-items:center}
+    .p-client{font-size:.78rem;font-weight:600;color:var(--dark)}
+    .p-cat{font-size:.7rem;color:var(--dark-3)}
+
+    /* =================== LIGHTBOX =================== */
+    .lb{display:none;position:fixed;inset:0;z-index:5000;background:rgba(6,10,8,.96);flex-direction:column;align-items:center;justify-content:center}
+    .lb.open{display:flex}
+    .lb-top{position:absolute;top:0;left:0;right:0;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;z-index:2;background:linear-gradient(to bottom,rgba(6,10,8,.9),transparent)}
+    .lb-proj-info{display:flex;flex-direction:column;gap:.2rem}
+    .lb-proj-tag{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange)}
+    .lb-proj-name{font-family:var(--font-h);font-size:1.1rem;font-weight:900;color:#fff;letter-spacing:-.3px}
+    .lb-top-right{display:flex;align-items:center;gap:.75rem}
+    .lb-counter{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.5);font-family:var(--font-h)}
+    .lb-close{width:40px;height:40px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:.95rem;cursor:pointer;transition:all var(--tf);background:transparent}
+    .lb-close:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+    .lb-main{flex:1;display:flex;align-items:center;justify-content:center;width:100%;padding:5rem 5rem 2rem;position:relative;overflow:hidden}
+    .lb-media{max-width:900px;width:100%;max-height:70vh;display:flex;align-items:center;justify-content:center;position:relative}
+    .lb-media img,.lb-media video{max-width:100%;max-height:68vh;object-fit:contain;border-radius:var(--r2);display:block;animation:lbFade .3s ease}
+    @keyframes lbFade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+    .lb-media video{width:100%;background:#000;border-radius:var(--r2)}
+    .lb-media .lb-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,.3);width:300px;height:200px;border:2px dashed rgba(255,255,255,.1);border-radius:var(--r2)}
+    .lb-media .lb-empty i{font-size:3rem;opacity:.3}.lb-media .lb-empty span{font-size:.85rem;opacity:.5}
+    .lb-arr{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;cursor:pointer;transition:all var(--tf);z-index:3}
+    .lb-arr:hover{background:var(--orange);border-color:var(--orange)}
+    .lb-prev{left:-70px}.lb-next{right:-70px}
+    .lb-strip{width:100%;max-width:900px;padding:.75rem 0 1.25rem;overflow-x:auto;display:flex;gap:.6rem;justify-content:center;scrollbar-width:none}
+    .lb-strip::-webkit-scrollbar{display:none}
+    .lb-thumb{width:72px;height:54px;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;flex-shrink:0;transition:all var(--tf);opacity:.5;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center}
+    .lb-thumb.active{border-color:var(--orange);opacity:1;transform:scale(1.08)}
+    .lb-thumb:hover{opacity:.85}
+    .lb-thumb img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+    .lb-thumb .lb-tv{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(250,87,41,.15)}
+    .lb-thumb .lb-tv i{color:var(--orange);font-size:1.1rem}
+
+    /* =================== TESTIMONIALS =================== */
+    .testimonials{padding:var(--sp) 0;background:var(--cream-2)}
+    .t-title{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:2.8rem}
+    .t-title span{color:var(--orange)}
+    .t-slider{position:relative;overflow:hidden}
+    .t-track{display:flex;gap:1.1rem;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+    .t-card{min-width:calc(33.333% - .74rem);background:#fff;border:1px solid var(--cream-3);border-radius:var(--r3);padding:1.75rem;flex-shrink:0;transition:all var(--tm)}
+    .t-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(11,18,14,.08)}
+    .t-stars{color:#f59e0b;font-size:.82rem;display:flex;gap:.2rem;margin-bottom:.9rem}
+    .t-quote{font-size:.87rem;color:var(--dark-2);line-height:1.75;margin-bottom:1.3rem;font-style:italic}
+    .t-auth{display:flex;align-items:center;gap:.8rem}
+    .t-av{width:42px;height:42px;background:var(--orange);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:.82rem;flex-shrink:0}
+    .t-name{font-weight:700;font-size:.85rem;color:var(--dark);display:block}
+    .t-role{font-size:.72rem;color:var(--dark-3)}
+    .t-ctrl{display:flex;align-items:center;gap:.9rem;margin-top:1.8rem}
+    .t-btn{width:38px;height:38px;border:1px solid var(--border-c);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dark-2);font-size:.78rem;cursor:pointer;transition:all var(--tf)}
+    .t-btn:hover{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+    .t-dots{display:flex;gap:.4rem}
+    .t-dot{width:8px;height:8px;background:var(--cream-3);border-radius:50%;cursor:pointer;transition:all var(--tm)}
+    .t-dot.active{background:var(--orange);width:20px;border-radius:4px}
+
+    /* =================== CONTACT =================== */
+    .contact{padding:var(--sp) 0}
+    .contact-g{display:grid;grid-template-columns:1fr 1.4fr;gap:3.5rem;align-items:start}
+    .ct-title{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.3rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:1.3rem}
+    .ct-title span{color:var(--orange)}
+    .ct-desc{font-size:.92rem;color:var(--dark-2);line-height:1.7;margin-bottom:1.75rem}
+    .ct-item{display:flex;gap:.9rem;align-items:flex-start;margin-bottom:1.3rem}
+    .ct-ic{width:42px;height:42px;background:var(--orange-bg);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--orange);flex-shrink:0}
+    .ct-lbl{font-size:.7rem;color:var(--dark-3);text-transform:uppercase;letter-spacing:1px;margin-bottom:.18rem}
+    .ct-val{font-size:.88rem;color:var(--dark);font-weight:600}
+    a.ct-val:hover{color:var(--orange)}
+    .ct-form{background:#fff;border:1px solid var(--cream-3);border-radius:var(--r3);padding:2.2rem}
+    .f-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    .f-gr{margin-bottom:1rem}
+    .f-gr label{display:block;font-size:.78rem;font-weight:600;color:var(--dark);margin-bottom:.38rem}
+    .f-gr input,.f-gr select,.f-gr textarea{width:100%;padding:.75rem .95rem;border:1.5px solid var(--cream-3);border-radius:var(--r1);font-size:.88rem;color:var(--dark);background:var(--cream);outline:none;resize:vertical;transition:all var(--tf)}
+    .f-gr input:focus,.f-gr select:focus,.f-gr textarea:focus{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(250,87,41,.1)}
+    .f-gr input::placeholder,.f-gr textarea::placeholder{color:var(--dark-3)}
+    .btn-sub{width:100%;padding:.88rem;background:var(--orange);color:#fff;border-radius:var(--r1);font-size:.92rem;font-weight:700;font-family:var(--font-b);cursor:pointer;border:none;transition:all var(--tm);display:flex;align-items:center;justify-content:center;gap:.5rem}
+    .btn-sub:hover{background:#e44d22;transform:translateY(-2px);box-shadow:0 8px 22px rgba(250,87,41,.3)}
+    .f-ok{display:none;align-items:center;gap:.7rem;padding:.85rem 1rem;background:var(--green-bg);border:1px solid var(--green-pale);border-radius:var(--r1);color:var(--green);font-size:.85rem;margin-top:.7rem}
+
+    /* =================== FOOTER =================== */
+    .footer{background:var(--dark);padding:4.5rem 0 2rem}
+    .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:2.5rem;margin-bottom:3.5rem}
+    .ft-logo{font-family:var(--font-h);font-size:1.7rem;font-weight:900;letter-spacing:-1px;color:var(--cream);display:block;margin-bottom:.65rem}
+    .ft-logo span{color:var(--orange)}
+    .ft-desc{font-size:.83rem;color:var(--dark-3);line-height:1.7;max-width:220px;margin-bottom:1.3rem}
+    .ft-col h4{font-family:var(--font-h);font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-3);margin-bottom:1rem}
+    .ft-col ul li{margin-bottom:.45rem}
+    .ft-col a{font-size:.85rem;color:rgba(255,248,241,.45);transition:color var(--tf)}
+    .ft-col a:hover{color:var(--cream)}
+    .ft-links{display:flex;flex-direction:column;gap:.55rem}
+    .ft-link{display:flex;align-items:center;gap:.55rem;padding:.55rem .9rem;border-radius:var(--r1);font-size:.8rem;font-weight:500;transition:all var(--tf)}
+    .ft-wa{background:rgba(37,211,102,.1);color:#4ade80;border:1px solid rgba(37,211,102,.2)}.ft-wa:hover{background:rgba(37,211,102,.2)}
+    .ft-gm{background:rgba(234,67,53,.1);color:#f87171;border:1px solid rgba(234,67,53,.2)}.ft-gm:hover{background:rgba(234,67,53,.2)}
+    .ft-up{background:rgba(20,188,103,.1);color:#6ee7b7;border:1px solid rgba(20,188,103,.2)}.ft-up:hover{background:rgba(20,188,103,.2)}
+    .ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:rgba(255,248,241,.28);flex-wrap:wrap;gap:.5rem}
+    .ft-bottom .ht{color:var(--orange)}
+    .btt{position:fixed;bottom:1.75rem;right:1.75rem;z-index:500;width:42px;height:42px;background:var(--orange);color:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.88rem;opacity:0;visibility:hidden;transition:all var(--tm);box-shadow:0 4px 14px rgba(250,87,41,.35)}
+    .btt.show{opacity:1;visibility:visible}
+    .btt:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(250,87,41,.45)}
+
+    /* =================== RESPONSIVE =================== */
+    @media(max-width:1100px){.hero-in{gap:2.5rem}.svc-grid{grid-template-columns:repeat(2,1fr)}.ft-top{grid-template-columns:1fr 1fr}.yt-in{gap:2.5rem}}
+    @media(max-width:900px){:root{--sp:64px}.nav-links,.nav-cta{display:none}.ham{display:flex}.hero-in{grid-template-columns:1fr;text-align:center}.h-desc{margin:0 auto 2.2rem}.h-actions,.h-contact{justify-content:center}.h-visual{justify-content:center}.h-photo{max-width:300px}.sf1,.sf2,.sf3{display:none}.stats-g{grid-template-columns:repeat(2,1fr)}.p-grid{grid-template-columns:repeat(2,1fr)}.t-card{min-width:calc(100% - 1.1rem)}.contact-g{grid-template-columns:1fr}.svc-hd,.p-hd{flex-direction:column;align-items:flex-start}.yt-in{grid-template-columns:1fr}.lb-main{padding:4.5rem 1rem 1rem}.lb-prev{left:8px}.lb-next{right:8px}.lb-arr{width:38px;height:38px;font-size:.85rem}.lb-thumb{width:56px;height:42px}}
+    @media(max-width:680px){:root{--sp:52px}.svc-grid,.p-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}.ft-top{grid-template-columns:1fr}.ft-bottom{flex-direction:column;text-align:center}.h-title{font-size:2.4rem;letter-spacing:-1.5px}.stats-g{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:400px){.h-title{font-size:2rem}.nav-logo{font-size:1.25rem}.btn-o,.btn-d,.btn-outline{padding:.7rem 1.3rem;font-size:.85rem}}
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader"><div class="l-name">Afroza<span>.</span></div><div class="l-bar"><div class="l-prog"></div></div></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="nav-logo">Afroza<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-a active">Home</a></li>
+      <li><a href="#intro-video" class="nav-a">Intro</a></li>
+      <li><a href="#about" class="nav-a">About</a></li>
+      <li><a href="#services" class="nav-a">Services</a></li>
+      <li><a href="#portfolio" class="nav-a">Work</a></li>
+      <li><a href="#testimonials" class="nav-a">Reviews</a></li>
+      <li><a href="#contact" class="nav-a">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta"><i class="fa-solid fa-arrow-right"></i> Hire Me</a>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="m-nav" id="mNav">
+  <a href="#hero" class="ml">Home</a><a href="#intro-video" class="ml">Intro</a>
+  <a href="#about" class="ml">About</a><a href="#services" class="ml">Services</a>
+  <a href="#portfolio" class="ml">Work</a><a href="#testimonials" class="ml">Reviews</a>
+  <a href="#contact" class="ml">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="h-blob h-b1"></div><div class="h-blob h-b2"></div>
+  <div class="c"><div class="hero-in">
+    <div>
+      <div class="h-tag" data-r><span class="h-dot"></span> Available for New Projects</div>
+      <h1 class="h-title" data-r data-d="1">Social Media<br/><em>and Digital</em><br/><span class="uw">Marketing</span> Expert</h1>
+      <p class="h-desc" data-r data-d="2">I'm <strong>Afroza Akter</strong> -- helping brands craft compelling stories, grow their digital presence, and turn followers into loyal customers.</p>
+      <div class="h-actions" data-r data-d="3">
+        <a href="#portfolio" class="btn-o"><i class="fa-solid fa-briefcase"></i> View My Work</a>
+        <a href="#intro-video" class="btn-outline"><i class="fa-brands fa-youtube"></i> Watch Intro</a>
+      </div>
+      <div class="h-contact" data-r data-d="4">
+        <a href="https://wa.me/8801732522501" target="_blank" class="c-pill"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:afrozaaktershila.work@gmail.com" class="c-pill"><i class="fa-brands fa-google"></i> Gmail</a>
+      </div>
+    </div>
+    <div class="h-visual" data-r data-d="2">
+      <div class="h-photo"><img src="assets/images/profile.jpg" alt="Afroza Akter"/></div>
+      <div class="sf sf1"><div class="sf-ic o"><i class="fa-solid fa-chart-line"></i></div><div><div class="sf-n">+300%</div><div class="sf-l">Avg. ROI</div></div></div>
+      <div class="sf sf2"><div class="sf-ic g"><i class="fa-solid fa-users"></i></div><div><div class="sf-n">150+</div><div class="sf-l">Happy Clients</div></div></div>
+      <div class="sf sf3"><div class="sf-ic p"><i class="fa-brands fa-upwork"></i></div><div><div class="sf-n">Top Rated</div><div class="sf-l">on Upwork</div></div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="t-track">
+  <span class="t-item">Social Media Marketing <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Content Creation <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Meta and Google Ads <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Brand Strategy <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">SEO and Analytics <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Paid Advertising <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Digital Marketing Expert <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Social Media Marketing <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Content Creation <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Meta and Google Ads <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Brand Strategy <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">SEO and Analytics <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Paid Advertising <span class="t-sep">&#9632;</span></span>
+  <span class="t-item">Digital Marketing Expert <span class="t-sep">&#9632;</span></span>
+</div></div>
+
+<!-- YOUTUBE INTRO VIDEO -->
+<section class="yt-section" id="intro-video">
+  <div class="yt-bg"></div>
+  <div class="c"><div class="yt-in">
+    <div data-r>
+      <span class="label light">Watch My Intro</span>
+      <h2 class="yt-title">Meet Afroza --<br/>Your <span>Growth Partner</span></h2>
+      <p class="yt-desc">Get to know me, my story, and how I help brands achieve extraordinary results in the digital world. Watch my intro video and see what working together could look like.</p>
+      <div class="yt-btns">
+        <a href="https://youtu.be/8oON21G1Bqg" target="_blank" class="btn-yt"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+        <a href="#contact" class="btn-yt-out"><i class="fa-solid fa-arrow-right"></i> Work With Me</a>
+      </div>
+    </div>
+    <div data-r data-d="2">
+      <div class="yt-player-wrap">
+        <div class="yt-player-ratio">
+          <iframe src="https://www.youtube.com/embed/8oON21G1Bqg?rel=0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="Afroza Akter Intro Video"></iframe>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats"><div class="c"><div class="stats-g">
+  <div class="s-item" data-r><div><span class="s-num" data-count="500">0</span><span class="s-suf">+</span></div><div class="s-lbl">Campaigns Launched</div></div>
+  <div class="s-item" data-r data-d="1"><div><span class="s-num" data-count="10">0</span><span class="s-suf">M+</span></div><div class="s-lbl">Social Media Reach</div></div>
+  <div class="s-item" data-r data-d="2"><div><span class="s-num" data-count="150">0</span><span class="s-suf">+</span></div><div class="s-lbl">Happy Clients</div></div>
+  <div class="s-item" data-r data-d="3"><div><span class="s-num" data-count="5">0</span><span class="s-suf">+</span></div><div class="s-lbl">Years Experience</div></div>
+</div></div></section>
+
+<!-- ABOUT -->
+<section class="about" id="about"><div class="c"><div class="about-in"><div data-r>
+  <span class="label">About Me</span>
+  <h2 class="about-title">Turning Brands into <span>Digital Powerhouses</span></h2>
+  <p class="ab-txt">I'm <strong>Afroza Akter</strong>, a passionate Social Media Marketing and Digital Marketing specialist with a proven track record of building brand identities and driving measurable growth across multiple industries.</p>
+  <p class="ab-txt">From scroll-stopping content to high-ROI paid campaigns, I bring strategy, creativity, and data together to help businesses of all sizes thrive in the digital landscape.</p>
+  <div class="ab-stat-row" data-r data-d="1">
+    <div><div class="ab-s-num">500<span>+</span></div><div class="ab-s-lbl">Campaigns</div></div>
+    <div><div class="ab-s-num">150<span>+</span></div><div class="ab-s-lbl">Clients</div></div>
+    <div><div class="ab-s-num">5<span>+</span></div><div class="ab-s-lbl">Years</div></div>
+    <div><div class="ab-s-num">10<span>M+</span></div><div class="ab-s-lbl">Reach</div></div>
+  </div>
+  <div class="skills" data-r data-d="2">
+    <div class="sk-row"><div class="sk-hd"><span>Social Media Strategy</span><span>95%</span></div><div class="sk-track"><div class="sk-fill" data-w="95"></div></div></div>
+    <div class="sk-row"><div class="sk-hd"><span>Content Creation and Design</span><span>92%</span></div><div class="sk-track"><div class="sk-fill" data-w="92"></div></div></div>
+    <div class="sk-row"><div class="sk-hd"><span>Meta and Google Ads</span><span>90%</span></div><div class="sk-track"><div class="sk-fill" data-w="90"></div></div></div>
+    <div class="sk-row"><div class="sk-hd"><span>Brand Development</span><span>88%</span></div><div class="sk-track"><div class="sk-fill" data-w="88"></div></div></div>
+  </div>
+  <div class="tags" data-r data-d="3"><span class="tag">Instagram Growth</span><span class="tag">Facebook Ads</span><span class="tag">Content Strategy</span><span class="tag">Copywriting</span><span class="tag">Google Ads</span><span class="tag">Branding</span><span class="tag">SEO</span><span class="tag">Analytics</span></div>
+  <div class="ab-btns" data-r data-d="4">
+    <a href="#contact" class="btn-o"><i class="fa-solid fa-arrow-right"></i> Work With Me</a>
+    <a href="https://www.upwork.com/freelancers/afrozaakter" target="_blank" class="btn-outline"><i class="fa-brands fa-upwork"></i> View on Upwork</a>
+  </div>
+</div></div></div></section>
+
+<!-- SERVICES -->
+<section class="services" id="services"><div class="c">
+  <div class="svc-hd"><div><span class="label light">Services</span><h2 class="svc-title">What I <span>Do Best</span><br/>For Your Brand</h2></div><a href="#contact" class="btn-o">Get Started <i class="fa-solid fa-arrow-right"></i></a></div>
+  <div class="svc-grid">
+    <div class="svc-card" data-r><span class="svc-num">01</span><div class="svc-icon"><i class="fa-brands fa-instagram"></i></div><div class="svc-arr"><i class="fa-solid fa-arrow-right"></i></div><h3 class="svc-name">Social Media Management</h3><p class="svc-desc">Complete handling of your social channels -- content calendar, daily posting, community engagement, and audience growth.</p><div class="chips"><span class="chip">Instagram</span><span class="chip">Facebook</span><span class="chip">TikTok</span></div></div>
+    <div class="svc-card" data-r data-d="1"><span class="svc-num">02</span><div class="svc-icon"><i class="fa-solid fa-pen-nib"></i></div><div class="svc-arr"><i class="fa-solid fa-arrow-right"></i></div><h3 class="svc-name">Content Strategy and Creation</h3><p class="svc-desc">Eye-catching graphics, reels, stories, and compelling copy that resonates with your target audience and drives real action.</p><div class="chips"><span class="chip">Copywriting</span><span class="chip">Graphics</span><span class="chip">Reels</span></div></div>
+    <div class="svc-card" data-r data-d="2"><span class="svc-num">03</span><div class="svc-icon"><i class="fa-solid fa-bullseye"></i></div><div class="svc-arr"><i class="fa-solid fa-arrow-right"></i></div><h3 class="svc-name">Paid Advertising</h3><p class="svc-desc">ROI-focused campaigns on Facebook, Instagram, and Google -- from audience research to scaling your best-performing ads.</p><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">Retargeting</span></div></div>
+    <div class="svc-card" data-r><span class="svc-num">04</span><div class="svc-icon"><i class="fa-solid fa-palette"></i></div><div class="svc-arr"><i class="fa-solid fa-arrow-right"></i></div><h3 class="svc-name">Brand Identity and Development</h3><p class="svc-desc">Build a powerful, memorable brand -- visual identity, brand voice, color system, and comprehensive brand guidelines.</p><div class="chips"><span class="chip">Branding</span><span class="chip">Visual ID</span><span class="chip">Guidelines</span></div></div>
+    <div class="svc-card" data-r data-d="1"><span class="svc-num">05</span><div class="svc-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div class="svc-arr"><i class="fa-solid fa-arrow-right"></i></div><h3 class="svc-name">SEO and Digital Strategy</h3><p class="svc-desc">Comprehensive strategy to improve search rankings, drive organic traffic, and establish your long-term digital authority.</p><div class="chips"><span class="chip">SEO</span><span class="chip">Research</span><span class="chip">Analytics</span></div></div>
+    <div class="svc-card" data-r data-d="2"><span class="svc-num">06</span><div class="svc-icon"><i class="fa-solid fa-chart-pie"></i></div><div class="svc-arr"><i class="fa-solid fa-arrow-right"></i></div><h3 class="svc-name">Analytics and Performance Reports</h3><p class="svc-desc">Data-driven insights and detailed performance reports -- understand what's working and scale your growth effectively.</p><div class="chips"><span class="chip">KPIs</span><span class="chip">Reports</span><span class="chip">Insights</span></div></div>
+  </div>
+</div></section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio"><div class="c">
+  <div class="p-hd" data-r><div><span class="label">My Work</span><h2 class="p-title">Recent <span>Projects</span></h2></div><a href="#contact" class="btn-d">Start a Project <i class="fa-solid fa-arrow-right"></i></a></div>
+  <div class="filters" data-r>
+    <button class="fb active" data-f="all">All Work</button>
+    <button class="fb" data-f="social">Social Media</button>
+    <button class="fb" data-f="ads">Ad Campaigns</button>
+    <button class="fb" data-f="content">Content</button>
+    <button class="fb" data-f="video">Videos</button>
+    <button class="fb" data-f="branding">Branding</button>
+  </div>
+  <div class="p-grid" id="pGrid">
+
+    <!-- Card 1: Instagram Carousel -->
+    <div class="p-card" data-cat="social" data-r
+      data-proj-tag="Social Media" data-proj-name="Instagram Carousel Design" data-proj-media='[
+        {"type":"image","src":"assets/images/gallery/ig1.png","label":"Slide 1"},
+        {"type":"image","src":"assets/images/gallery/ig2.png","label":"Slide 2"},
+        {"type":"image","src":"assets/images/gallery/ig3.png","label":"Slide 3"},
+        {"type":"image","src":"assets/images/gallery/ig4.png","label":"Slide 4"},
+        {"type":"image","src":"assets/images/gallery/ig5.png","label":"Slide 5"},
+        {"type":"video","src":"assets/videos/v1.mp4","label":"Reel Video"},
+        {"type":"image","src":"assets/images/gallery/cd1.png","label":"Bonus Post"}
+      ]'>
+      <div class="p-thumb"><img src="assets/images/gallery/ig1.png" alt="Instagram Carousel"/><div class="p-ov"><div><span class="p-tag">Social Media</span><div class="p-name">Instagram Carousel Design</div><div class="p-met"><i class="fa-solid fa-images"></i> 5 Slides + Video</div></div></div></div>
+      <div class="p-meta"><span class="p-client">Brand Campaign</span><span class="p-cat">Social Media &bull; 7 Items</span></div>
+    </div>
+
+    <!-- Card 2: LinkedIn Content -->
+    <div class="p-card" data-cat="content" data-r data-d="1"
+      data-proj-tag="Content Strategy" data-proj-name="LinkedIn Carousel Series" data-proj-media='[
+        {"type":"image","src":"assets/images/gallery/ln1.png","label":"Cover Slide"},
+        {"type":"image","src":"assets/images/gallery/ln2.png","label":"Slide 2"},
+        {"type":"image","src":"assets/images/gallery/ln3.png","label":"Slide 3"},
+        {"type":"image","src":"assets/images/gallery/ln4.png","label":"Slide 4"},
+        {"type":"image","src":"assets/images/gallery/ln5.png","label":"Slide 5"},
+        {"type":"image","src":"assets/images/gallery/ln6.png","label":"Final Slide"},
+        {"type":"video","src":"assets/videos/v2.mp4","label":"Behind the Scenes"}
+      ]'>
+      <div class="p-thumb"><img src="assets/images/gallery/ln1.png" alt="LinkedIn Content"/><div class="p-ov"><div><span class="p-tag">Content</span><div class="p-name">LinkedIn Carousel Series</div><div class="p-met"><i class="fa-brands fa-linkedin"></i> 6 Slides + Video</div></div></div></div>
+      <div class="p-meta"><span class="p-client">Professional Growth</span><span class="p-cat">Content &bull; 7 Items</span></div>
+    </div>
+
+    <!-- Card 3: Countdown Campaign -->
+    <div class="p-card" data-cat="social" data-r data-d="2"
+      data-proj-tag="Social Media" data-proj-name="Launch Countdown Campaign" data-proj-media='[
+        {"type":"image","src":"assets/images/gallery/cd1.png","label":"Day 4"},
+        {"type":"image","src":"assets/images/gallery/cd2.png","label":"Day 3"},
+        {"type":"image","src":"assets/images/gallery/cd3.png","label":"Day 2"},
+        {"type":"image","src":"assets/images/gallery/cd4.png","label":"Day 1"},
+        {"type":"video","src":"assets/videos/v3.mp4","label":"Launch Video"},
+        {"type":"image","src":"assets/images/gallery/cd2_1.png","label":"Launch Post"},
+        {"type":"image","src":"assets/images/gallery/cd2_2.png","label":"Results Post"}
+      ]'>
+      <div class="p-thumb"><img src="assets/images/gallery/cd1.png" alt="Countdown Campaign"/><div class="p-ov"><div><span class="p-tag">Social Media</span><div class="p-name">Launch Countdown Campaign</div><div class="p-met"><i class="fa-solid fa-rocket"></i> 5 Posts + 1 Video</div></div></div></div>
+      <div class="p-meta"><span class="p-client">Product Launch</span><span class="p-cat">Social Media &bull; 7 Items</span></div>
+    </div>
+
+    <!-- Card 4: Video Reels Project -->
+    <div class="p-card" data-cat="video" data-r
+      data-proj-tag="Video Content" data-proj-name="Short-Form Video Package" data-proj-media='[
+        {"type":"video","src":"assets/videos/v1.mp4","label":"Reel 1"},
+        {"type":"video","src":"assets/videos/v2.mp4","label":"Reel 2"},
+        {"type":"video","src":"assets/videos/v3.mp4","label":"Reel 3"},
+        {"type":"video","src":"assets/videos/v4.mp4","label":"Reel 4"},
+        {"type":"image","src":"assets/images/gallery/ig2.png","label":"Thumbnail 1"},
+        {"type":"image","src":"assets/images/gallery/ig4.png","label":"Thumbnail 2"},
+        {"type":"image","src":"assets/images/gallery/cd3_1.png","label":"Storyboard"}
+      ]'>
+      <div class="p-thumb"><video src="assets/videos/v1.mp4" muted loop preload="metadata"></video><div class="p-ov"><div><span class="p-tag">Video</span><div class="p-name">Short-Form Video Package</div><div class="p-met"><i class="fa-solid fa-film"></i> 4 Videos + 3 Images</div></div></div></div>
+      <div class="p-meta"><span class="p-client">Lifestyle Brand</span><span class="p-cat">Videos &bull; 7 Items</span></div>
+    </div>
+
+    <!-- Card 5: Branding / Design Project -->
+    <div class="p-card" data-cat="branding" data-r data-d="1"
+      data-proj-tag="Branding" data-proj-name="Visual Identity Design" data-proj-media='[
+        {"type":"image","src":"assets/images/gallery/dr1.png","label":"Design Concept 1"},
+        {"type":"image","src":"assets/images/gallery/dr2.png","label":"Design Concept 2"},
+        {"type":"image","src":"assets/images/gallery/dr3.png","label":"Design Concept 3"},
+        {"type":"image","src":"assets/images/gallery/dr4.png","label":"Design Concept 4"},
+        {"type":"image","src":"assets/images/gallery/cd3_1.png","label":"Brand Mockup"},
+        {"type":"image","src":"assets/images/gallery/cd3_2.png","label":"Brand Guide"},
+        {"type":"video","src":"assets/videos/v4.mp4","label":"Brand Reveal"}
+      ]'>
+      <div class="p-thumb"><img src="assets/images/gallery/dr1.png" alt="Brand Design"/><div class="p-ov"><div><span class="p-tag">Branding</span><div class="p-name">Visual Identity Design</div><div class="p-met"><i class="fa-solid fa-palette"></i> 6 Designs + Video</div></div></div></div>
+      <div class="p-meta"><span class="p-client">Design Studio</span><span class="p-cat">Branding &bull; 7 Items</span></div>
+    </div>
+
+    <!-- Card 6: Ad Campaigns -->
+    <div class="p-card" data-cat="ads" data-r data-d="2"
+      data-proj-tag="Paid Ads" data-proj-name="Meta Ads Campaign" data-proj-media='[
+        {"type":"image","src":"assets/images/gallery/cd2_1.png","label":"Ad Creative 1"},
+        {"type":"image","src":"assets/images/gallery/cd2_2.png","label":"Ad Creative 2"},
+        {"type":"image","src":"assets/images/gallery/cd2_3.png","label":"Ad Creative 3"},
+        {"type":"image","src":"assets/images/gallery/cd3_1.png","label":"Results Dashboard"},
+        {"type":"image","src":"assets/images/gallery/cd3_2.png","label":"Audience Targeting"},
+        {"type":"image","src":"assets/images/gallery/cd3_3.png","label":"Performance Report"},
+        {"type":"video","src":"assets/videos/v2.mp4","label":"Campaign Video"}
+      ]'>
+      <div class="p-thumb"><img src="assets/images/gallery/cd2_1.png" alt="Meta Ads"/><div class="p-ov"><div><span class="p-tag">Paid Ads</span><div class="p-name">Meta Ads Campaign</div><div class="p-met"><i class="fa-solid fa-bullseye"></i> 6 Creatives + Video</div></div></div></div>
+      <div class="p-meta"><span class="p-client">E-Commerce</span><span class="p-cat">Ad Campaigns &bull; 7 Items</span></div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials"><div class="c">
+  <div data-r><span class="label">Client Love</span><h2 class="t-title">What Clients Say<br/>About <span>My Work</span></h2></div>
+  <div class="t-slider" data-r><div class="t-track" id="tTrack">
+    <div class="t-card"><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="t-quote">"Afroza transformed our Instagram completely. Engagement went from near zero to thousands of genuine interactions within 3 months. Absolutely phenomenal work!"</p><div class="t-auth"><div class="t-av">JM</div><div><span class="t-name">James Mitchell</span><span class="t-role">CEO, StyleBrand Co.</span></div></div></div>
+    <div class="t-card"><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="t-quote">"Best investment we made. Afroza's Meta Ads campaign gave us a 4x return on ad spend. She knows exactly what she is doing and communicates brilliantly."</p><div class="t-auth"><div class="t-av">SR</div><div><span class="t-name">Sarah Rodriguez</span><span class="t-role">Owner, Bloom Boutique</span></div></div></div>
+    <div class="t-card"><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="t-quote">"Incredibly professional. The content strategy she built set us apart from competitors. Our brand now has a real voice and identity. Highly recommend!"</p><div class="t-auth"><div class="t-av">DK</div><div><span class="t-name">David Kim</span><span class="t-role">Founder, TechNova</span></div></div></div>
+    <div class="t-card"><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="t-quote">"Working with Afroza was seamless. She understood our vision immediately and delivered content that exceeded expectations every single time."</p><div class="t-auth"><div class="t-av">LP</div><div><span class="t-name">Lisa Park</span><span class="t-role">Marketing Director, FreshFoods</span></div></div></div>
+  </div>
+  <div class="t-ctrl"><button class="t-btn" id="tPrev"><i class="fa-solid fa-chevron-left"></i></button><div class="t-dots" id="tDots"></div><button class="t-btn" id="tNext"><i class="fa-solid fa-chevron-right"></i></button></div>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact"><div class="c"><div class="contact-g">
+  <div data-r>
+    <span class="label">Get In Touch</span>
+    <h2 class="ct-title">Let's Build Something <span>Great</span> Together</h2>
+    <p class="ct-desc">Ready to elevate your brand? Reach out through WhatsApp or Gmail and I will get back to you within 24 hours.</p>
+    <div class="ct-item"><div class="ct-ic"><i class="fa-brands fa-whatsapp"></i></div><div><div class="ct-lbl">WhatsApp</div><a href="https://wa.me/8801732522501" class="ct-val">+880 1732-522501</a></div></div>
+    <div class="ct-item"><div class="ct-ic"><i class="fa-brands fa-google"></i></div><div><div class="ct-lbl">Gmail</div><a href="mailto:afrozaaktershila.work@gmail.com" class="ct-val">afrozaaktershila.work@gmail.com</a></div></div>
+    <div class="ct-item"><div class="ct-ic"><i class="fa-brands fa-upwork"></i></div><div><div class="ct-lbl">Upwork</div><a href="https://www.upwork.com/freelancers/afrozaakter" target="_blank" class="ct-val">View My Upwork Profile</a></div></div>
+    <div class="ct-item"><div class="ct-ic"><i class="fa-solid fa-clock"></i></div><div><div class="ct-lbl">Working Hours</div><span class="ct-val" style="color:var(--dark)">Saturday to Thursday: 9AM to 9PM (BST)</span></div></div>
+  </div>
+  <div data-r data-d="2">
+    <form class="ct-form" onsubmit="submitForm(event)">
+      <div class="f-row">
+        <div class="f-gr"><label>Full Name</label><input type="text" placeholder="Your full name" required/></div>
+        <div class="f-gr"><label>Email Address</label><input type="email" placeholder="your@email.com" required/></div>
+      </div>
+      <div class="f-gr"><label>Service Needed</label><select><option value="">Select a service...</option><option>Social Media Management</option><option>Content Creation</option><option>Paid Advertising</option><option>Brand Development</option><option>SEO and Strategy</option><option>Other</option></select></div>
+      <div class="f-gr"><label>Your Message</label><textarea rows="5" placeholder="Tell me about your project..." required></textarea></div>
+      <button type="submit" class="btn-sub" id="subBtn"><span id="subTxt">Send Message</span><i class="fa-solid fa-paper-plane" id="subIco"></i></button>
+      <div class="f-ok" id="fOk"><i class="fa-solid fa-circle-check" style="color:var(--green-lt)"></i> Message sent! I will reply within 24 hours.</div>
+    </form>
+  </div>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="c">
+  <div class="ft-top">
+    <div><span class="ft-logo">Afroza<span>.</span></span><p class="ft-desc">Social Media Marketing and Digital Strategy Expert. Let's grow your brand together.</p></div>
+    <div class="ft-col"><h4>Navigation</h4><ul><li><a href="#hero">Home</a></li><li><a href="#intro-video">Intro Video</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Work</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="#services">Social Media</a></li><li><a href="#services">Content Creation</a></li><li><a href="#services">Paid Ads</a></li><li><a href="#services">Branding</a></li><li><a href="#services">SEO</a></li></ul></div>
+    <div class="ft-col"><h4>Contact Me</h4><div class="ft-links"><a href="https://wa.me/8801732522501" target="_blank" class="ft-link ft-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a><a href="mailto:afrozaaktershila.work@gmail.com" class="ft-link ft-gm"><i class="fa-brands fa-google"></i> Gmail</a><a href="https://www.upwork.com/freelancers/afrozaakter" target="_blank" class="ft-link ft-up"><i class="fa-brands fa-upwork"></i> Upwork</a></div></div>
+  </div>
+  <div class="ft-bottom"><span>2025 Afroza Akter. All rights reserved.</span><span>Made with <span class="ht">&#9829;</span> and Strategy</span></div>
+</div></footer>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <div class="lb-top"><div class="lb-proj-info"><span class="lb-proj-tag" id="lbTag">Project</span><span class="lb-proj-name" id="lbName">Project Name</span></div><div class="lb-top-right"><span class="lb-counter" id="lbCount">1 / 7</span><button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button></div></div>
+  <div class="lb-main"><button class="lb-arr lb-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button><div class="lb-media" id="lbMedia"></div><button class="lb-arr lb-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button></div>
+  <div class="lb-strip" id="lbStrip"></div>
+</div>
+
+<script>
+// LOADER
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),1800));
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('glass',scrollY>60);
+  document.getElementById('btt').classList.toggle('show',scrollY>400);
+  document.querySelectorAll('section[id]').forEach(s=>{
+    const r=s.getBoundingClientRect();
+    if(r.top<=100&&r.bottom>100){document.querySelectorAll('.nav-a').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-a[href="#${s.id}"]`);if(a)a.classList.add('active');}
+  });
+},{passive:true});
+
+// HAMBURGER
+const ham=document.getElementById('ham'),mNav=document.getElementById('mNav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mNav.classList.toggle('open');document.body.style.overflow=mNav.classList.contains('open')?'hidden':'';});
+document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mNav.classList.remove('open');document.body.style.overflow='';}));
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
+
+// REVEAL
+const ro=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+
+// COUNTER
+const co=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){const el=e.target,tg=+el.dataset.count,step=tg/(1800/16);let cur=0;const t=setInterval(()=>{cur+=step;if(cur>=tg){el.textContent=tg;clearInterval(t);}else el.textContent=Math.floor(cur);},16);co.unobserve(el);}}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+// SKILL BARS
+const sbo=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.sk-fill').forEach(f=>setTimeout(()=>f.style.width=f.dataset.w+'%',150));sbo.unobserve(e.target);}}),{threshold:.3});
+const ab=document.getElementById('about');if(ab)sbo.observe(ab);
+
+// PORTFOLIO FILTER
+document.querySelectorAll('.fb').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  const f=btn.dataset.f;
+  document.querySelectorAll('.p-card').forEach((c,i)=>{const show=f==='all'||c.dataset.cat===f;c.style.transition=`opacity .4s ease ${i*.05}s,transform .4s ease ${i*.05}s`;c.style.opacity=show?'1':'0.15';c.style.transform=show?'scale(1)':'scale(0.94)';c.style.pointerEvents=show?'':'none';});
+}));
+
+// TESTIMONIALS
+const track=document.getElementById('tTrack'),dotsW=document.getElementById('tDots');
+const cards=[...track.querySelectorAll('.t-card')];
+let pv=()=>window.innerWidth>=1024?3:window.innerWidth>=640?2:1,cur=0,aT;
+function dots(){dotsW.innerHTML='';const p=Math.ceil(cards.length/pv());for(let i=0;i<p;i++){const d=document.createElement('button');d.className='t-dot'+(i===0?' active':'');d.onclick=()=>{goTo(i);reset();};dotsW.appendChild(d);}}
+function goTo(i){const p=pv(),pg=Math.ceil(cards.length/p);cur=((i%pg)+pg)%pg;const w=track.getBoundingClientRect().width,cw=(w-(p-1)*20)/p;track.style.transform=`translateX(-${cur*(cw+20)*p}px)`;[...dotsW.children].forEach((d,j)=>d.classList.toggle('active',j===cur));}
+dots();function start(){aT=setInterval(()=>goTo(cur+1),4500);}function reset(){clearInterval(aT);start();}start();
+document.getElementById('tNext').onclick=()=>{goTo(cur+1);reset();};
+document.getElementById('tPrev').onclick=()=>{goTo(cur-1);reset();};
+window.addEventListener('resize',()=>{dots();goTo(0);},{passive:true});
+
+// FORM
+function submitForm(e){e.preventDefault();const btn=document.getElementById('subBtn'),txt=document.getElementById('subTxt'),ico=document.getElementById('subIco');btn.disabled=true;txt.textContent='Sending...';ico.className='fa-solid fa-spinner fa-spin';setTimeout(()=>{btn.disabled=false;txt.textContent='Send Message';ico.className='fa-solid fa-paper-plane';const ok=document.getElementById('fOk');ok.style.display='flex';e.target.reset();setTimeout(()=>ok.style.display='none',6000);},1500);}
+
+// AUTO-PLAY VIDEO THUMBNAILS ON HOVER
+document.querySelectorAll('.p-thumb video').forEach(v=>{
+  v.closest('.p-card').addEventListener('mouseenter',()=>v.play());
+  v.closest('.p-card').addEventListener('mouseleave',()=>{v.pause();v.currentTime=0;});
+});
+
+// =================== LIGHTBOX ===================
+let lbData=[],lbIdx=0;
+function openLB(card){const raw=card.dataset.projMedia;if(!raw)return;lbData=JSON.parse(raw);lbIdx=0;document.getElementById('lbTag').textContent=card.dataset.projTag||'Project';document.getElementById('lbName').textContent=card.dataset.projName||'';buildStrip();showMedia(0);document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';document.querySelectorAll('#lbMedia video').forEach(v=>v.pause());}
+function buildStrip(){const strip=document.getElementById('lbStrip');strip.innerHTML='';lbData.forEach((item,i)=>{const th=document.createElement('div');th.className='lb-thumb'+(i===0?' active':'');th.onclick=()=>showMedia(i);if(item.type==='video'){th.innerHTML='<div class="lb-tv"><i class="fa-solid fa-play"></i></div>';}else if(item.type==='image'&&item.src){const im=document.createElement('img');im.src=item.src;im.alt=item.label||'';im.loading='lazy';th.appendChild(im);}else{th.innerHTML='<div class="lb-tv" style="background:rgba(255,255,255,.05)"><i class="fa-solid fa-plus" style="opacity:.3"></i></div>';}strip.appendChild(th);});}
+function showMedia(i){if(i<0)i=lbData.length-1;if(i>=lbData.length)i=0;lbIdx=i;const item=lbData[i];const media=document.getElementById('lbMedia');media.querySelectorAll('video').forEach(v=>v.pause());document.getElementById('lbCount').textContent=`${i+1} / ${lbData.length}`;document.querySelectorAll('#lbStrip .lb-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));const thumbs=document.querySelectorAll('#lbStrip .lb-thumb');if(thumbs[i])thumbs[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});if(item.type==='video'&&item.src){media.innerHTML=`<video src="${item.src}" controls autoplay playsinline style="width:100%;max-height:68vh;border-radius:var(--r2);background:#000"></video>`;}else if(item.type==='image'&&item.src){media.innerHTML=`<img src="${item.src}" alt="${item.label||''}" style="max-width:100%;max-height:68vh;object-fit:contain;border-radius:var(--r2);animation:lbFade .3s ease"/>`;}else{media.innerHTML=`<div class="lb-empty"><i class="fa-solid fa-image"></i><span>${item.label||'Add your content here'}</span></div>`;}}
+document.getElementById('lbPrev').onclick=()=>showMedia(lbIdx-1);
+document.getElementById('lbNext').onclick=()=>showMedia(lbIdx+1);
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLB();});
+document.addEventListener('keydown',e=>{if(document.getElementById('lb').classList.contains('open')){if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')showMedia(lbIdx+1);if(e.key==='ArrowLeft')showMedia(lbIdx-1);}});
+let tsX=0;document.getElementById('lb').addEventListener('touchstart',e=>tsX=e.touches[0].clientX,{passive:true});document.getElementById('lb').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tsX;if(Math.abs(dx)>50){if(dx<0)showMedia(lbIdx+1);else showMedia(lbIdx-1);}},{passive:true});
+document.querySelectorAll('.p-card[data-proj-media]').forEach(card=>{card.addEventListener('click',()=>openLB(card));});
+</script>
+</body>
+</html>
