@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('X0qFevAwKiVX4Eo-G');</script>
   <style>
     /* =====================================================
        DESIGN SYSTEM
@@ -600,15 +602,16 @@
     <div class="ct-item"><div class="ct-ic"><i class="fa-solid fa-clock"></i></div><div><div class="ct-lbl">Working Hours</div><span class="ct-val" style="color:var(--dark)">Saturday to Thursday: 9AM to 9PM (BST)</span></div></div>
   </div>
   <div data-r data-d="2">
-    <form class="ct-form" onsubmit="submitForm(event)">
+    <form class="ct-form" id="contactForm">
       <div class="f-row">
-        <div class="f-gr"><label>Full Name</label><input type="text" placeholder="Your full name" required/></div>
-        <div class="f-gr"><label>Email Address</label><input type="email" placeholder="your@email.com" required/></div>
+        <div class="f-gr"><label>Full Name</label><input type="text" name="from_name" placeholder="Your full name" required/></div>
+        <div class="f-gr"><label>Email Address</label><input type="email" name="reply_to" placeholder="your@email.com" required/></div>
       </div>
-      <div class="f-gr"><label>Service Needed</label><select><option value="">Select a service...</option><option>Social Media Management</option><option>Content Creation</option><option>Paid Advertising</option><option>Brand Development</option><option>SEO and Strategy</option><option>Other</option></select></div>
-      <div class="f-gr"><label>Your Message</label><textarea rows="5" placeholder="Tell me about your project..." required></textarea></div>
+      <div class="f-gr"><label>Service Needed</label><select name="service"><option value="">Select a service...</option><option>Social Media Management</option><option>Content Creation</option><option>Paid Advertising</option><option>Brand Development</option><option>SEO and Strategy</option><option>Other</option></select></div>
+      <div class="f-gr"><label>Your Message</label><textarea rows="5" name="message" placeholder="Tell me about your project..." required></textarea></div>
       <button type="submit" class="btn-sub" id="subBtn"><span id="subTxt">Send Message</span><i class="fa-solid fa-paper-plane" id="subIco"></i></button>
       <div class="f-ok" id="fOk"><i class="fa-solid fa-circle-check" style="color:var(--green-lt)"></i> Message sent! I will reply within 24 hours.</div>
+      <div class="f-err" id="fErr" style="display:none;align-items:center;gap:.7rem;padding:.85rem 1rem;background:#fee2e2;border:1px solid #fca5a5;border-radius:var(--r1);color:#b91c1c;font-size:.85rem;margin-top:.7rem"><i class="fa-solid fa-circle-xmark"></i> Failed to send. Please try WhatsApp instead.</div>
     </form>
   </div>
 </div></div></section>
@@ -685,8 +688,23 @@ document.getElementById('tNext').onclick=()=>{goTo(cur+1);reset();};
 document.getElementById('tPrev').onclick=()=>{goTo(cur-1);reset();};
 window.addEventListener('resize',()=>{dots();goTo(0);},{passive:true});
 
-// FORM
-function submitForm(e){e.preventDefault();const btn=document.getElementById('subBtn'),txt=document.getElementById('subTxt'),ico=document.getElementById('subIco');btn.disabled=true;txt.textContent='Sending...';ico.className='fa-solid fa-spinner fa-spin';setTimeout(()=>{btn.disabled=false;txt.textContent='Send Message';ico.className='fa-solid fa-paper-plane';const ok=document.getElementById('fOk');ok.style.display='flex';e.target.reset();setTimeout(()=>ok.style.display='none',6000);},1500);}
+// FORM — EmailJS
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=document.getElementById('subBtn'),txt=document.getElementById('subTxt'),ico=document.getElementById('subIco');
+  btn.disabled=true;txt.textContent='Sending...';ico.className='fa-solid fa-spinner fa-spin';
+  document.getElementById('fErr').style.display='none';
+  emailjs.sendForm('service_emo1i9i','template_20js1wj',this)
+    .then(()=>{
+      btn.disabled=false;txt.textContent='Send Message';ico.className='fa-solid fa-paper-plane';
+      const ok=document.getElementById('fOk');ok.style.display='flex';this.reset();
+      setTimeout(()=>ok.style.display='none',6000);
+    },()=>{
+      btn.disabled=false;txt.textContent='Send Message';ico.className='fa-solid fa-paper-plane';
+      document.getElementById('fErr').style.display='flex';
+      setTimeout(()=>document.getElementById('fErr').style.display='none',8000);
+    });
+});
 
 // AUTO-PLAY VIDEO THUMBNAILS ON HOVER
 document.querySelectorAll('.p-thumb video').forEach(v=>{
